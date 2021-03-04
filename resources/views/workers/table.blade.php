@@ -16,7 +16,7 @@
         @foreach($workers as $worker)
             <tr>
                 <td>{{ $worker->fio }}</td>
-                <td>{{ $worker->position->name }}</td>
+                <td>{{ empty($worker->position) ? '' : $worker->position->name }}</td>
                 <td>{{ empty($worker->filial) ? '' : $worker->filial->name }}</td>
                 <td>
                     {!! Form::open(['route' => ['workers.destroy', $worker->id], 'method' => 'delete']) !!}

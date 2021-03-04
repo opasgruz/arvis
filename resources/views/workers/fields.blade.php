@@ -23,7 +23,7 @@
         {!! Form::label('filial_id', 'Филиал:') !!}
         <select id="filial_id" class="form-control" name="filial_id" tabindex="-1">
             @foreach($filials as $filial)
-                <option value = "{{ $filial['id'] }}" {{ (isset($worker) && ($filial['id'] == $worker->filial_id))?'selected':'' }} >{{ $filial['name'] }}</option>
+                <option value = "{{ $filial['id'] }}" {{ (isset($worker) && isset($worker->filial_id) && ($filial['id'] == $worker->filial_id))?'selected':'' }} >{{ $filial['name'] }}</option>
             @endforeach
         </select>
     </div>
@@ -33,7 +33,7 @@
         {!! Form::label('position_id', 'Должность:') !!}
         <select id="position_id" class="form-control" name="position_id" tabindex="-1">
             @foreach($positions as $position)
-                <option value = "{{ $position['id'] }}" {{ (isset($worker) && ($position['id'] == $worker->position_id))?'selected':'' }} >{{ $position['name'] }}</option>
+                <option value = "{{ $position['id'] }}" {{ (isset($worker) && isset($worker->position_id) && ($position['id'] == $worker->position_id))?'selected':'' }} >{{ $position['name'] }}</option>
             @endforeach
         </select>
     </div>
