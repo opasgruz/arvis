@@ -171,7 +171,7 @@ class FilialsController extends AppBaseController
         /** @var Filials $filial */
         $filial = $this->filialsRepository->find($filial_id);
 
-        $current_filial = ['filial_id' => $filial->id , 'filial_name' => $filial->name];
+        $current_filial = (empty($filial)) ? ['filial_id' => 0 , 'filial_name' => 'Все филиалы'] : ['filial_id' => $filial->id , 'filial_name' => $filial->name];
         session(['user_current_filial' => $current_filial]);
 
         return $this->sendResponse(['result' => true, 'filial' => $current_filial], Response::HTTP_OK);

@@ -15,7 +15,7 @@
                       <div class="card">
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
-                              <strong>Edit Filials</strong>
+                              <strong>Редактирование филиала</strong>
                           </div>
                           <div class="card-body">
                               {!! Form::model($filials, ['route' => ['filials.update', $filials->id], 'method' => 'patch']) !!}

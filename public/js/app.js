@@ -100,22 +100,44 @@ $(document).ready(function () {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
-});
-$(".select-filial").on('click', function () {
-  $.ajax({
-    data: {
-      filial_id: this.dataset.filial_id
-    },
-    method: "POST",
-    url: "/setfilial",
-    success: function success(result) {
-      $("#current-filial").text(result.data.filial.filial_name);
-      $(".select-filial").removeClass("active");
-      $(".select-filial[data-filial_id = '" + result.data.filial.filial_id + "']").addClass("active");
-      var dateTable = $('#dataTableBuilder');
-      if (dateTable.length) dateTable.DataTable().ajax.reload();
-    }
+  $(".select-filial").on('click', function () {
+    $.ajax({
+      data: {
+        filial_id: this.dataset.filial_id
+      },
+      method: "POST",
+      url: "/setfilial",
+      success: function success(result) {
+        $("#current-filial").text(result.data.filial.filial_name);
+        $(".select-filial").removeClass("active");
+        $(".select-filial[data-filial_id = '" + result.data.filial.filial_id + "']").addClass("active");
+        updateWorkerTable();
+      }
+    });
   });
+  $(".filial-workers").on('click', function () {
+    $.ajax({
+      data: {
+        filial_id: this.dataset.filial_id
+      },
+      method: "POST",
+      url: "/setfilial",
+      success: function success(result) {
+        document.location.href = '/workers';
+      }
+    });
+  });
+
+  function updateWorkerTable() {
+    $.ajax({
+      method: "GET",
+      url: "/workers",
+      dataType: 'html',
+      success: function success(result) {
+        $("#workers-container").html($(result).find('#workers-container').html());
+      }
+    });
+  }
 });
 
 /***/ }),

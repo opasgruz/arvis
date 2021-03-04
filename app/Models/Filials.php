@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $id
  * @property string $name
  * @property string $description
+ * @property integer $workersCount
  */
 class Filials extends Model
 {
@@ -27,7 +28,10 @@ class Filials extends Model
 
     protected $dates = ['deleted_at'];
 
-
+    /**
+     * @var array
+     */
+    protected $appends = ['workersCount'];
 
     public $fillable = [
         'name',
@@ -64,5 +68,24 @@ class Filials extends Model
     public function workers()
     {
         return $this->hasMany(\App\Models\Workers::class, 'filial_id');
+    }
+
+
+    /**
+     * @return integer
+     **/
+    public function getWorkersCountAttribute()
+    {
+        return (empty($this->workers)) ? 0 : $this->workers->count();
+    }
+
+
+    public function delete()
+    {
+        if (! empty($this->workers))
+        {
+            $this->workers->toQuery()->update(['filial_id' => null]);
+        }
+        return parent::delete();
     }
 }

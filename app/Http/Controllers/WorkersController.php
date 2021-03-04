@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\AppHelper;
 use App\Http\Requests\CreateWorkersRequest;
 use App\Http\Requests\UpdateWorkersRequest;
 use App\Models\Filials;
@@ -31,7 +32,9 @@ class WorkersController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $workers = $this->workersRepository->all();
+
+        $filialId = AppHelper::getUserCurrentFilialId();
+        $workers = $this->workersRepository->all(($filialId > 0) ? ['filial_id' => $filialId] : []);
 
         $filials = Filials::get()->map(function (Filials $q) {
            return [$q->id => $q->name];
@@ -52,9 +55,12 @@ class WorkersController extends AppBaseController
      */
     public function create()
     {
-        $filials = Filials::get()->toArray();
+        $filials = Filials::get()
+            ->toArray();
 
-        $positions = Positions::get()->toArray();
+        $positions = Positions::query()
+            ->get()
+            ->toArray();
 
         return view('workers.create')
             ->with(['filials' => $filials, 'positions' => $positions]);

@@ -6,3 +6,124 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';*/
+
+.navbar-brand {
+  min-width: 200px;
+}
+
+.filials-dropdown-toggle::after {
+  vertical-align: 0.1em;
+}
+
+.filials-dropdown-toggle::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.255em;
+  vertical-align: 0.2em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+
+.header-user-menu, .header-filials-menu {
+  display: inline-block;
+}
+
+.header-filials-menu {
+  line-height: 1.5rem;
+  font-size: 16px;
+}
+
+.navbar-nav > li > a.filials-dropdown-toggle {
+  background-color: #f0f3f5;
+}
+
+.navbar-nav > li > a {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  line-height: 19px;
+  text-decoration: none;
+}
+
+.navbar-nav > li > a:hover {
+  text-decoration: none;
+}
+
+.nav>li>a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.dropdown-menu.filials-menu > li > a {
+  padding-left: 30px;
+}
+
+.dropdown-menu > li > a {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 7px 20px;
+  color: #333;
+}
+
+.navbar-nav>li>.dropdown-menu {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  min-width: 200px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  font-size: 1.5rem;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+
+.dropdown-menu > li:hover {
+  background-color: #3f8dbf;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+
+
+
+.dropdown-menu > li:hover a {
+  color: white;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+  text-decoration: none;
+}
+
+
+.select-filial.active::before {
+  position: absolute;
+  left: 7px;
+  font-family: "FontAwesome";
+  font-weight: normal;
+  content: "\F00C";
+  margin-top: 6px;
+}

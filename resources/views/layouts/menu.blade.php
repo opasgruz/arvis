@@ -10,7 +10,7 @@
         <span>Должности</span>
     </a>
 </li>
-<li class="nav-item {{ Request::is('workers*') ? 'active' : '' }}">
+<li class="nav-item filial-workers {{ Request::is('workers*') ? 'active' : '' }} data-filial_id=0">
     <a class="nav-link" href="{{ route('workers.index') }}">
         <i class="nav-icon icon-people"></i>
         <span>Сотрудники</span>

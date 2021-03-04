@@ -51,7 +51,7 @@ class AppHelper
     {
         $current_filial = session('user_current_filial');
 
-        return $current_filial ? $current_filial['filial_id'] : Filials::first()->id;
+        return $current_filial ? $current_filial['filial_id'] : 0;
     }
 
     /**
@@ -61,7 +61,7 @@ class AppHelper
     {
         $current_filial = session('user_current_filial');
 
-        return $current_filial ? $current_filial['filial_name'] : Filials::first()->name;
+        return $current_filial ? $current_filial['filial_name'] : 'Все филиалы';
     }
 
     /**
@@ -69,7 +69,7 @@ class AppHelper
      */
     public static function getFilials():array
     {
-        $result = [];
+        $result = [0 => 'Все филиалы'];
         $classElements = Filials::select(['id','name'])
             ->get();
         foreach ($classElements as $element) {
@@ -80,12 +80,12 @@ class AppHelper
     }
 
     /**
-     * @return int
+     * @return array
      */
     public static function getMenuFilials():array
     {
         $filials = Filials::get()->toArray();
-
+        $filials[0] = 'Все филиалы';
         return $filials;
     }
 

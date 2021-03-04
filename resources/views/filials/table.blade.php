@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>Название</th>
+                <th>Количество сотрудников</th>
                 <th>Описание</th>
                 <th colspan="2">Действия</th>
             </tr>
@@ -11,7 +12,11 @@
         @foreach($filials as $filial)
             <tr>
                 <td>{{ $filial->name }}</td>
-            <td>{{ $filial->description }}</td>
+                <td>
+                    {{ $filial->workersCount }}
+                    <button class="btn btn-primary pull-right filial-workers" data-filial_id="{{ $filial->id }}" type="button">Подробнее</button>
+                </td>
+                <td>{{ $filial->description }}</td>
                 <td>
                     {!! Form::open(['route' => ['filials.destroy', $filial->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
