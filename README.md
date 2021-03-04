@@ -2,7 +2,7 @@
 
 ## Системные требования:
 - PHP не ниже 7.2.20
-- MySQL (MariaDB и др.) или PosgreSQL
+- MySQL (MariaDB и др.) или PostgreSQL
 - Composer
 - Git
 
