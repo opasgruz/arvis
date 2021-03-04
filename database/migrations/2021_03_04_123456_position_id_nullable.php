@@ -13,7 +13,7 @@ class PositionIdNullable extends Migration
      */
     public function up()
     {
-        Schema::create('table', function (Blueprint $table) {
+        Schema::table('workers', function (Blueprint $table) {
             $table->integer('position_id')->nullable(true)->change();
         });
     }
@@ -25,7 +25,7 @@ class PositionIdNullable extends Migration
      */
     public function down()
     {
-        Schema::create('table', function (Blueprint $table) {
+        Schema::table('workers', function (Blueprint $table) {
             $table->integer('position_id')->nullable(false)->change();
         });
     }
