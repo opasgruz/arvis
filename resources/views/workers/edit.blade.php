@@ -15,7 +15,7 @@
                       <div class="card">
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
-                              <strong>Edit Workers</strong>
+                              <strong>Редактирование сотрудника</strong>
                           </div>
                           <div class="card-body">
                               {!! Form::model($worker, ['route' => ['workers.update', $worker->id], 'method' => 'patch']) !!}

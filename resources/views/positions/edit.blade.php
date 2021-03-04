@@ -18,7 +18,7 @@
                               <strong>Редактирование должности</strong>
                           </div>
                           <div class="card-body">
-                              {!! Form::model($positions, ['route' => ['positions.update', $positions->id], 'method' => 'patch']) !!}
+                              {!! Form::model($position, ['route' => ['positions.update', $position->id], 'method' => 'patch']) !!}
 
                               @include('positions.fields')
 

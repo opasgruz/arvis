@@ -116,11 +116,11 @@ class WorkersController extends AppBaseController
         }
 
         $filials = Filials::get()->map(function (Filials $q) {
-            return [$q->id => $q->name];
+            return ['id' => $q->id, 'name' => $q->name];
         });
 
         $positions = Positions::get()->map(function (Positions $q) {
-            return [$q->id => $q->name];
+            return ['id' => $q->id, 'name' => $q->name];
         });
 
         return view('workers.edit')->with('workers', $worker)
@@ -137,15 +137,15 @@ class WorkersController extends AppBaseController
      */
     public function update($id, UpdateWorkersRequest $request)
     {
-        $workers = $this->workersRepository->find($id);
+        $worker = $this->workersRepository->find($id);
 
-        if (empty($workers)) {
+        if (empty($worker)) {
             Flash::error('Сотрудник не найден');
 
             return redirect(route('workers.index'));
         }
 
-        $workers = $this->workersRepository->update($request->all(), $id);
+        $worker = $this->workersRepository->update($request->all(), $id);
 
         Flash::success('Сотрудник успешно сохранён.');
 

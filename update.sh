@@ -11,4 +11,4 @@ cd $DIR
 
 composer install
 
-php artisan migrate --force || exit 1
+/opt/php/7.3/bin/php artisan migrate --force || exit 1

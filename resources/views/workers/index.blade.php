@@ -11,7 +11,7 @@
                  <div class="col-lg-12">
                      <div class="card">
                          <div class="card-header">
-                             <a class="pull-left" title="Добавить должность" href="{{ route('workers.create') }}"><i class="fa fa-plus-square fa-2x"></i></a>
+                             <a class="pull-left" title="Добавить сотрудника" href="{{ route('workers.create') }}"><i class="fa fa-plus-square fa-2x"></i></a>
                              <h2 style="padding-left: 40px; font-size: 1.5rem;">Перечень сотрудников</h2>
                            </div>
                          <div class="card-body">

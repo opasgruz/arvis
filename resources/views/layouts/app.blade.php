@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>{{config('app.name')}}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap 4.1.1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css">
@@ -33,9 +34,9 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="http://arvisgroup.ru/uploads/site/img/logo_new.png" width="168" height="30"
+        <img class="navbar-brand-full" src="/images/logo_new.png" width="168" height="30"
              alt="Arvis Group Logo">
-        <img class="navbar-brand-minimized" src="http://arvisgroup.ru/uploads/site/img/favicon.ico" width="32"
+        <img class="navbar-brand-minimized" src="/images/favicon.ico" width="32"
              height="32" alt="Arvis Group Logo">
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">

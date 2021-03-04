@@ -3,8 +3,8 @@
         <thead>
             <tr>
                 <th>Название</th>
-        <th>Описание</th>
-                <th colspan="2">Действие</th>
+                <th>Описание</th>
+                <th colspan="2">Действия</th>
             </tr>
         </thead>
         <tbody>
