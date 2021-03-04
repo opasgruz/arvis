@@ -29,7 +29,10 @@ class PositionsController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $positions = $this->positionsRepository->all();
+        $order = [
+            ['column' => 'id', 'direction' => 'desc'],
+        ];
+        $positions = $this->positionsRepository->all([], null, null, ['*'], $order);
 
         return view('positions.index')
             ->with(['positions' => $positions, 'types' => $this->positionsRepository::TYPES]);

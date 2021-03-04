@@ -71,6 +71,7 @@ class AppHelper
     {
         $result = [0 => 'Все филиалы'];
         $classElements = Filials::select(['id','name'])
+            ->orderBy('id', 'desc')
             ->get();
         foreach ($classElements as $element) {
             $result[$element->id] = $element->name;
@@ -78,15 +79,4 @@ class AppHelper
 
         return $result;
     }
-
-    /**
-     * @return array
-     */
-    public static function getMenuFilials():array
-    {
-        $filials = Filials::get()->toArray();
-        $filials[0] = 'Все филиалы';
-        return $filials;
-    }
-
 }

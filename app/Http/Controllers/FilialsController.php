@@ -31,7 +31,10 @@ class FilialsController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $filials = $this->filialsRepository->all();
+        $order = [
+            ['column' => 'id', 'direction' => 'desc'],
+        ];
+        $filials = $this->filialsRepository->all([], null, null, ['*'], $order);
 
         return view('filials.index')
             ->with('filials', $filials);

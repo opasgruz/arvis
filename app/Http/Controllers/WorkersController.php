@@ -32,12 +32,22 @@ class WorkersController extends AppBaseController
      */
     public function index(Request $request)
     {
-
         $filialId = AppHelper::getUserCurrentFilialId();
-        $workers = $this->workersRepository->all(($filialId > 0) ? ['filial_id' => $filialId] : []);
 
-        $filials = Filials::get()->map(function (Filials $q) {
-           return [$q->id => $q->name];
+        $order = [
+            ['column' => 'lastname', 'direction' => 'asc'],
+            ['column' => 'firstname', 'direction' => 'asc'],
+            ['column' => 'middlename', 'direction' => 'asc'],
+        ];
+        $workers = $this->workersRepository->all(($filialId > 0) ? ['filial_id' => $filialId] : [], null, null, ['*'], $order);
+
+        $filialDescription = '';
+        $filials = Filials::get()->map(function (Filials $q) use ($filialId, &$filialDescription) {
+            if ($filialId == $q->id)
+            {
+                $filialDescription = $q->description;
+            }
+            return [$q->id => $q->name];
         });
 
         $positions = Positions::get()->map(function (Positions $q) {
@@ -45,7 +55,12 @@ class WorkersController extends AppBaseController
         });
 
         return view('workers.index')
-            ->with(['workers' => $workers, 'filials' => $filials, 'positions' => $positions]);
+            ->with([
+                'workers' => $workers,
+                'filials' => $filials,
+                'positions' => $positions,
+                'description' => $filialDescription
+            ]);
     }
 
     /**

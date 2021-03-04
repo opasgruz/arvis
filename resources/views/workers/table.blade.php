@@ -1,4 +1,8 @@
 <div class="table-responsive-sm" id="workers-container">
+    <div class="filial-description">
+         {{ $description ? ('Описание филиала: ' .  $description) : '' }}
+    </div>
+
     <table class="table table-striped" id="workers-table">
         <thead>
             <tr>
