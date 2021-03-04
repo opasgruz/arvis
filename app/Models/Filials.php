@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class Filials
@@ -84,7 +85,8 @@ class Filials extends Model
     {
         if (! empty($this->workers))
         {
-            $this->workers->toQuery()->update(['filial_id' => null]);
+            $filialId = $this->id;
+            DB::statement("UPDATE workers SET filial_id = null WHERE filial_id = $filialId;");
         }
         return parent::delete();
     }
